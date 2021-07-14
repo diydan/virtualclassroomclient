@@ -90,6 +90,81 @@ To run the classroom in production we require you to:
 ### Authentication
 In "Testing Mode" the Learncube API performs a pseudo validation and returns a fake random user generated for the purposes of testing. 
 
+In production the Learncube Virtual Classroom uses [JSON Web Tokens (JWT)](https://jwt.io/) to validate all api calls. JSON Web Tokens are encoded strings that consist of 3 parts, header, payload and signature, separated by dots. 
+
+
+The ***Header*** typically consists of two parts: the type of the token, which is JWT, and the signing algorithm being used, such as HMAC SHA256
+```json
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
+```
+The ***Payload*** consists of user data corresponding to the Learncube API Users account (username, user_id, email) and a timestamp that is some time in the future. The `exp` property defines when this token will expire. We recommend a value between 5 and 15 minutes.
+
+*** Important: This must match the user data we have stored for the Learncube account holder. ***
+```json
+{
+  "username": "learncube_user",
+  "user_id": 12345,
+  "email": "learncube_user@yourdomain.com",
+  "exp": 1626254079
+}
+```
+The ***Signature*** is the consists of the header and payload, encrypted with your Learcube Private Key using the algorithm contained in the header.
+
+The end result is three Base64-URL strings separated by dots. 
+```bash
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImxlYXJuY3ViZV91c2VyIiwidXNlc
+l9pZCI6MTIzNDUsImVtYWlsIjoibGVhcm5jdWJlX3VzZXJAeW91cmRvbWFpbi5jb20iLCJleHAiOjE2MjY
+yNTQwNzl9.tnIG4tJcpZ0sT4THyvQTvOckUStKbwUOkAsKatYMti4
+```
+
+This token must be appended with the string `'Bearer '` and added to each call to the Learcube API server. 
+```bash
+curl 'https://api.learncube.com/vc/api/conf/virtualclassroom/unique-room-token/' \
+  -H 'accept: application/json, text/plain, */*' \
+  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ
+  SI6ImxlYXJuY3ViZV91c2VyIiwidXNlcl9pZCI6MTIzNDUsImVtYWlsIjoibGVhcm5jdWJlX3VzZ
+  XJAeW91cmRvbWFpbi5jb20iLCJleHAiOjE2MjYyNTQwNzl9.tnIG4tJcpZ0sT4THyvQTvOckUStK
+  bwUOkAsKatYMti4' \
+```
+On each request the Learncube API servers will test the validity of the token by verirying it with the secret key store on our server, and comparing the expiry timestamp against the time of our internal server clock. If the token has expired, we will return a `401 Unauthorized` error response, immediately re-request a token from your auth endpoint and retry the request. 
+***Important: Never share your secret key with anyone or include it in publicly visible code.*** 
+
+#### Samples
+There are many good libraries available for creating JWT's. Some samples below.
+
+[Node - jsonwebtoken](https://github.com/auth0/node-jsonwebtoken#readme)
+```javascript
+const jwt = require('jsonwebtoken')
+
+const token = jwt.sign({
+  exp: Math.floor(Date.now() / 1000) + (60 * 60),
+  data: {
+	  "username": "learncube_user",
+	  "user_id": 12345,
+	  "email": "learncube_user@yourdomain.com"
+	}
+}, "your-secret-key", { algorithm: 'HS256' })
+
+const header = "Bearer " + token
+```
+
+[Python - pyjwt](https://pyjwt.readthedocs.io/en/stable/)
+```python
+import jwt, datetime
+token = jwt.encode({
+    "username": "learncube_user",
+    "user_id": 12345,
+    "email": "learncube_user@yourdomain.com"
+    "exp": datetime.datetime.utcnow() + datetime.timedelta(minutes=5)
+  }, 'your-secret-key', algorithm="HS256")
+
+header = "Bearer " + token
+```
+
+<!---
 In production, you must perform the validation on your own server, by setting up a HTTP endpoint and configuring it to accept POST requests. The location of this endpoint must be saved in the [Learcube Dashboard](https://app.learncube.com/app/dashboard/#api.
 <br/>
 
@@ -126,7 +201,7 @@ Name | Type | Required | Description
 -----|---------|-----|---------|
 status | boolean | yes | True if the user has been validated successfully |
 message | string | yes | Information about why the validation failed. This message will be displyed in the UI for the user |
-
+--->
 <br/>
 <br/>
 
