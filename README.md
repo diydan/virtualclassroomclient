@@ -8,17 +8,6 @@ The Learncube Virtual Classroom is is an online learning environment that allows
 <br/>
 <br/>
 
-
-### Browser Support
-The Virtual Classroom Client is a single page Javascript web application. It uses web-rtc for video and voice calls and websockets for real-time messaging. Browser support is below.
-
-Edge | Firefox | Chrome | Opera | Safari | Safari iOS | Chrome Android | Firefox Android | Samsung 
------|---------|--------|-----|---------|--------|-----|---------|--------|
-> 79 | > 64 | > 70 | > 56 | 12.1 | > 12.1 | > 70 | > 64 | > 11 | 
-
-There have been many improvements in Web-RTC support in the latest releases of all the above browsers. For the best experience we recommend the most up-to-date version of a Chromium based browser.
-<br/>
-
 ### Quickstart Guide (Testing Mode)
 
 Learcube's Virtual Classroom Client is a simple to use drop-in widget that allows you to embed a fully equipped virtual classroom in any web page or LMS.
@@ -103,7 +92,21 @@ Learncube's Virtual Classroom is only available to Learncube customers with API 
 <br/>
 <br/>
 -->
+<br/>
+<br/>
 
+
+### Browser Support
+The Virtual Classroom Client is a single page Javascript web application. It uses web-rtc for video and voice calls and websockets for real-time messaging. Browser support is below.
+
+Edge | Firefox | Chrome | Opera | Safari | Safari iOS | Chrome Android | Firefox Android | Samsung 
+-----|---------|--------|-----|---------|--------|-----|---------|--------|
+> 79 | > 64 | > 70 | > 56 | 12.1 | > 12.1 | > 70 | > 64 | > 11 | 
+
+There have been many improvements in Web-RTC support in the latest releases of all the above browsers. For the best experience we recommend the most up-to-date version of a Chromium based browser.
+
+<br/>
+<br/>
 
 ### Routes
 The Virtual Classroom uses hash routes to navigate you through the learning experience. To avoid any conflicts, please ensure that the page where the client code is embedded does not use hash routes
