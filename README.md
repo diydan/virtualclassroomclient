@@ -42,7 +42,7 @@ Learncube's Virtual Classroom is only available to Learncube customers with API 
   username={usernamefromyouraccount}
 
   # Learcube user id
-  userid={useridfromyouraccount}
+  user_id={useridfromyouraccount}
 
   # Learncube user email
   email={emailyouusedtosignup}
