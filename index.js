@@ -13,7 +13,7 @@ router.get('/', function (req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
 
-router.post('/validate-token/', function (req, res) {
+router.post('/get-valid-token/', function (req, res) {
 
 	// If user is valid and logged in, return the jwt with your learncube user details
 

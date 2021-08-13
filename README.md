@@ -17,27 +17,7 @@ Edge | Firefox | Chrome | Opera | Safari | Safari iOS | Chrome Android | Firefox
 > 79 | > 64 | > 70 | > 56 | 12.1 | > 12.1 | > 70 | > 64 | > 11 | 
 
 There have been many improvements in Web-RTC support in the latest releases of all the above browsers. For the best experience we recommend the most up-to-date version of a Chromium based browser.
-
 <br/>
-<br/>
-
-
-### Routes
-The Virtual Classroom uses hash routes to navigate you through the learning experience. To avoid any conflicts, please ensure that the page where the client code is embedded does not use hash routes
- - `#/onboarding/` - We perform basic tests and permission checks to ensure your browser is compataible
- - `#/teacher/` - The main route for a teacher in a live class
- - `#/teacher/ended/` - Video call and socket connections are closed and the user can submit feedback about the class
- - `#/student/arrived/` - The waiting room for a student before the class starts
- - `#/student/` - The main route for a student in a live class
- - `#/student/ended/` - Video call and socket connections are closed and the user can submit feedback about the class
- - `#/student/removed/` - Where the student arrives after being removed from the class by the teacher
- - `#/review/` - A read-only version of the classroom without video where students and teachers can review the content
- - `#/whiteboard/` - A whiteboard-only version of the classroom, designed for use with 3rd party video conferencing tools
- - `#/whiteboard/ended/` - The end class view for a whiteboard only class
-
-<br/>
-<br/>
-
 
 ### Quickstart Guide (Testing Mode)
 
@@ -47,6 +27,58 @@ Learncube's Virtual Classroom is only available to Learncube customers with API 
 
 - Log in to your [Learncube Account](https://app.learncube.com/), or [Sign up here for free](https://app.learncube.com/app/create/).
 - Get your public and private [api keys here](https://app.learncube.com/app/dashboard/#api) from your Learcube API Dashboard. (Leave the account mode to testing in order to follow this example)
+- Clone the quickstart app to your local machine
+
+  ```shell 
+  git clone https://github.com/brianjfinnerty/virtualclassroomclient.git
+  ```
+
+- Replace the variables in the `.env` file with real data from your Learncube API account.
+  ```
+  # Private Key
+  privateKey={privatekeyfromyouraccount}
+
+  # Learncube user username
+  username={usernamefromyouraccount}
+
+  # Learcube user id
+  userid={useridfromyouraccount}
+
+  # Learncube user email
+  email={emailyouusedtosignup}
+  ```
+  ***Important: This must match the user data we have stored for the Learncube account holder.***
+
+- Replace the Classroom participant data in the `index.html`file with user data of a classroom participants. 
+
+  ***Note: This does not have to match the user data in your `.env` file. All your classroom participants, teachers, students and admins, will access the classroom using your Learncube account details.***
+  ```html
+      <div id="virtual-classroom-client"></div>
+      <link rel="stylesheet" type="text/css" href="https://static.learncube.net/virtualclassroom/widget.css">
+      <script type="text/javascript" src="https://static.learncube.net/virtualclassroom/widget.js"></script>
+      <script type="text/javascript">
+          const classroom = new VirtualClassroom('#virtual-classroom-client',
+              {
+                  'token': {{UNIQUE ROOM TOKEN HERE}}, // Eg. first-test-room-token
+                  'userid': {{FAKE USER ID HERE}}, // Eg. 12345G
+                  'username': {{FAKE USERNAME HERE}}, // Eg. 'Test Widget Teacher',
+                  'publicKey': {{YOUR PUBLIC KEY HERE}}',
+                  'userType': 'teacher',
+                  'validateUrl': '/get-valid-token/'
+              });
+      </script>
+  ```
+
+- Install dependencies and run 
+  ```shell
+  cd virtualclassroomclient
+  npm install
+  npm start
+  ```
+
+- Navigate to http://localhost:3000 and enter your first classroom.
+
+<!-- 
 - Copy the following snippet into your web page, replacing the variables: 
   - PUBLICKEY with your valid Learncube API public key
   - ROOMTOKEN with a unique string with which to identify the classroom
@@ -70,6 +102,25 @@ Learncube's Virtual Classroom is only available to Learncube customers with API 
 
 <br/>
 <br/>
+-->
+
+
+### Routes
+The Virtual Classroom uses hash routes to navigate you through the learning experience. To avoid any conflicts, please ensure that the page where the client code is embedded does not use hash routes
+ - `#/onboarding/` - We perform basic tests and permission checks to ensure your browser is compataible
+ - `#/teacher/` - The main route for a teacher in a live class
+ - `#/teacher/ended/` - Video call and socket connections are closed and the user can submit feedback about the class
+ - `#/student/arrived/` - The waiting room for a student before the class starts
+ - `#/student/` - The main route for a student in a live class
+ - `#/student/ended/` - Video call and socket connections are closed and the user can submit feedback about the class
+ - `#/student/removed/` - Where the student arrives after being removed from the class by the teacher
+ - `#/review/` - A read-only version of the classroom without video where students and teachers can review the content
+ - `#/whiteboard/` - A whiteboard-only version of the classroom, designed for use with 3rd party video conferencing tools
+ - `#/whiteboard/ended/` - The end class view for a whiteboard only class
+
+<br/>
+<br/>
+
 
 ### Production Use
 The snippet above contains:
@@ -131,10 +182,10 @@ const jwt = require('jsonwebtoken')
 const token = jwt.sign({
   exp: Math.floor(Date.now() / 1000) + (60 * 60),
   data: {
-	  "username": "learncube_user",
-	  "user_id": 12345,
-	  "email": "learncube_user@yourdomain.com"
-	}
+    "username": "learncube_user",
+    "user_id": 12345,
+    "email": "learncube_user@yourdomain.com"
+  }
 }, "your-secret-key", { algorithm: 'HS256' })
 
 const header = "Bearer " + token
