@@ -8,7 +8,7 @@ The Learncube Virtual Classroom is is an online learning environment that allows
 <br/>
 <br/>
 
-### Quickstart Guide (Testing Mode)
+### Quickstart Guide 
 
 Learcube's Virtual Classroom Client is a simple to use drop-in widget that allows you to embed a fully equipped virtual classroom in any web page or LMS.
 
