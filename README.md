@@ -101,12 +101,11 @@ The Virtual Classroom Client is a single page Javascript web application. It use
 
 Edge | Firefox | Chrome | Opera | Safari | Safari iOS | Chrome Android | Firefox Android | Samsung 
 -----|---------|--------|-----|---------|--------|-----|---------|--------|
-> 79 | > 64 | > 70 | > 56 | 12.1 | > 12.1 | > 70 | > 64 | > 11 | 
+\> 79 | > 64 | > 70 | > 56 | 12.1 | > 12.1 | > 70 | > 64 | > 11 | 
 
 There have been many improvements in Web-RTC support in the latest releases of all the above browsers. For the best experience we recommend the most up-to-date version of a Chromium based browser.
+<br/>
 
-<br/>
-<br/>
 
 ### Routes
 The Virtual Classroom uses hash routes to navigate you through the learning experience. To avoid any conflicts, please ensure that the page where the client code is embedded does not use hash routes
@@ -125,7 +124,7 @@ The Virtual Classroom uses hash routes to navigate you through the learning expe
 <br/>
 
 
-### Production Use
+<!-- ### Production Use
 The snippet above contains:
  - `widget.js` contains all the javascript necessary to run the virtual classroom
  - `widget.css` contains the styles to render it on any device. You can add or overwrite any styles in your webpage.
@@ -137,7 +136,7 @@ To run the classroom in production we require you to:
 2. Set up a HTTP endpoint for authentication 
 3. Provide additional user data for the classroom participant.
 <br/>
-<br/>
+<br/> -->
 
 
 ### Authentication
