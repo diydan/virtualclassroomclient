@@ -1,14 +1,15 @@
 # Learncube Virtual Classroom Client
 
-* [Overview](README.md#overview)
+### [Overview](README.md)
   * [Quickstart](README.md#quickstart)
 
-* [Production Use] 
+### [Production Use](PRODUCTION.md)
   * [Routes](PRODUCTION.md#routes)
   * [Browser Support](PRODUCTION.md#browser)
   * [Authentication](PRODUCTION.md#authentication)
   * [Client Api Reference](PRODUCTION.md#api-reference)
 
+### [Rest Api](RESTAPI.md)
 
 ### Overview
 The Learncube Virtual Classroom is is an online learning environment that allows teachers and students to communicate, interact, collaborate through our video conferencing tool, chat box and interactive whiteboard. You can access all your past classes, upload and store class content, create breakout rooms, record your lessons and conduct classes in Conversation or Whiteboard-Only mode. 
