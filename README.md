@@ -3,8 +3,8 @@
 * [Overview](#overview)
 * [Quickstart](#quickstart)
 * [Routes](#routes)
-* [Browser Support](#docs/BROWSER.md)
-* [Authentication](docs/AUTHENTICATION.md)
+* [Browser Support](BROWSER.md)
+* [Authentication](AUTHENTICATION.md)
 * [Client Api Reference](docs/CLIENTAPIREFERENCE.md)
 
 
