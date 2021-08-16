@@ -13,6 +13,10 @@ router.get('/', function (req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
 
+router.get('/rest-api/', function (req, res) {
+    res.sendFile(path.join(__dirname + '/restapi.html'));
+});
+
 router.post('/get-valid-token/', function (req, res) {
 
 	// If user is valid and logged in, return the jwt with your learncube user details

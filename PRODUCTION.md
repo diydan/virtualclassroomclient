@@ -1,3 +1,5 @@
+# Learncube Virtual Classroom Client
+
 ### [Overview](README.md)
   * [Quickstart](README.md#quickstart)
 
@@ -8,8 +10,12 @@
   * [Client Api Reference](PRODUCTION.md#api-reference)
 
 ### [Rest Api](RESTAPI.md)
+  * [Classrooms](RESTAPI.md#classrooms)
+  * [Participants](RESTAPI.md#participants)
 
+	
 
+### Production Use
 Once you've got the Quickstart app up and running, it's time for a more in-depth look the requirements and options available for production use.
 
 ### Browser Support
@@ -76,7 +82,7 @@ The end result is three Base64-URL strings separated by dots. The HTTP response 
 The Learncube Virtualclassroom Client will include this token in the authoraization header in each request to the Learncube API server. When the token expires, we will return a `401 Unauthorized` error response, immediately re-request a token from your auth endpoint and retry the request the unauthorised request. 
 ***Important: Never share your secret key with anyone or include it in publicly visible code.*** 
 
-#### Samples
+#### Examples
 There are many good libraries available for creating JWT's. Some samples below.
 
 [Node - jsonwebtoken](https://github.com/auth0/node-jsonwebtoken#readme)
@@ -105,6 +111,11 @@ token = jwt.encode({
 
 header = "Bearer " + token
 ```
+
+<br/>
+<br/>
+
+### Events
 
 <br/>
 <br/>

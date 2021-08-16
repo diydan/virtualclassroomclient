@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Learncube Api Integration</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://unpkg.com/axios/dist/axios.min.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+    <div id="virtual-classroom-client"></div>
+    <script type="text/javascript">
+
+        
+        const authToken = ''
+
+        axios.interceptors.request.use(function (req) {
+            req.headers.common.Authorization = `Bearer ${authToken}`
+            return req
+        }, function (err) {
+          // Do something with request error
+          return Promise.reject(err)
+        })
+
+        axios.interceptors.response.use(function (resp) {
+            return resp
+          }, function (err) {
+            if (err.response && err.response.status === 401) {
+                return getToken()
+                    .then((resp) => {
+                        authToken = resp.data.token
+                        return axios(err.config)
+                    })
+            }
+          }
+        )
+
+        
+        function getToken () {
+            return axios.post('/get-valid-token/', {})
+        }
+
+        function getClasses () {
+            return axios.get('http://eu-dev.learn-cube.com/api/virtual-classroom/classrooms/')
+        }
+
+        
+    </script> 
+</body>
+
+</html>
+</html>
