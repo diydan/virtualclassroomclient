@@ -21,10 +21,10 @@ Each instance of the Learncube Virtual Classroom represents an individual class,
 Classrooms can be retrieved in a list or individually by providing the Learncube uuid.
 
 
-´´´http
+```curl
 GET https://api.learncube.com/api/virtual-classroom/classrooms/
 GET https://api.learncube.com/api/virtual-classroom/classrooms/{uuid}/
-´´´
+```
 
 #### Example
 ```json 
@@ -99,9 +99,10 @@ slug | string | The Learncube in-class identifier
 #### Query Parameters
 The Classroom list can also be filtered by providing the following query parameters.
 
-´´´http
+```curl
 GET https://api.learncube.com/api/virtual-classroom/classrooms/?start_before=2021-07-20T16:02:15Z&page=3
-´´´
+```
+
 #### Options
 Name | Type | Description
 -----|------|------------|
