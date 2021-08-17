@@ -19,7 +19,7 @@
 Once you've got the Quickstart app up and running, it's time for a more in-depth look the requirements and options available for production use.
 
 ### Authentication
-All api calls from the Virtual Classroom Client must be authenticated using JSON Web Tokens. For more information on this see [Authentication](AUTH.MD)
+All api calls from the Virtual Classroom Client must be authenticated using JSON Web Tokens. For more information on this see [Authentication](AUTH.md)
 
 ### Browser Support
 The Virtual Classroom Client is a single page Javascript web application. It uses web-rtc for video and voice calls and websockets for real-time messaging. Browser support is below.
