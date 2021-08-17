@@ -14,7 +14,8 @@
     <script type="text/javascript">
 
         
-        const authToken = ''
+        let authToken = ''
+
 
         axios.interceptors.request.use(function (req) {
             req.headers.common.Authorization = `Bearer ${authToken}`
@@ -40,10 +41,14 @@
         
         function getToken () {
             return axios.post('/get-valid-token/', {})
+            .then((resp) => {
+                authToken = resp.data.token
+                return resp
+            })
         }
 
         function getClasses () {
-            return axios.get('http://eu-dev.learn-cube.com/api/virtual-classroom/classrooms/')
+            return axios.get('https://eu-dev.learn-cube.com/api/virtual-classroom/classrooms/')
         }
 
         

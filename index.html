@@ -12,12 +12,23 @@
 <body>
     <div id="virtual-classroom-client"></div>
     <script type="text/javascript">
-        const classroom = new VirtualClassroom('#virtual-classroom-client',
+        /*const classroom = new VirtualClassroom('#virtual-classroom-client',
             {
-                'token': {{UNIQUE ROOM TOKEN HERE}}, // Eg. first-test-room-token
+              'token': {{UNIQUE ROOM TOKEN HERE}}, // Eg. first-test-room-token
                 'userid': {{FAKE USER ID HERE}}, // Eg. 12345G
                 'username': {{FAKE USERNAME HERE}}, // Eg. 'Test Widget Teacher',
-                'publicKey': {{YOUR PUBLIC KEY HERE}},
+                'publicKey': {{YOUR PUBLIC KEY HERE}}',
+                'userType': 'teacher',
+                'validateUrl': '/get-valid-token/'
+            });
+        */
+
+        const classroom = new VirtualClassroom('#virtual-classroom-client',
+            {
+                'token': 'august-16-1', // Eg. first-test-room-token
+                'userid': '12345G',
+                'username': 'Test Widget Teacher', // Eg. 'Test Widget Teacher',
+                'publicKey': '63d2dd20e7557161942c53e4',
                 'userType': 'teacher',
                 'validateUrl': '/get-valid-token/'
             });
@@ -25,5 +36,4 @@
     </script> 
 </body>
 
-</html>
 </html>

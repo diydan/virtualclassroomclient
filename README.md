@@ -10,6 +10,9 @@
   * [Client Api Reference](PRODUCTION.md#api-reference)
 
 ### [Rest Api](RESTAPI.md)
+  * [Classrooms](RESTAPI.md#classrooms)
+  * [Participants](RESTAPI.md#participants)
+
 
 ### Overview
 The Learncube Virtual Classroom is is an online learning environment that allows teachers and students to communicate, interact, collaborate through our video conferencing tool, chat box and interactive whiteboard. You can access all your past classes, upload and store class content, create breakout rooms, record your lessons and conduct classes in Conversation or Whiteboard-Only mode. 
