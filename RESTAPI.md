@@ -22,7 +22,10 @@ Classrooms can be retrieved in a list or individually by providing the Learncube
 
 
 ```curl
+# Fetch classroom list
 GET https://api.learncube.com/api/virtual-classroom/classrooms/
+
+# Fetch single classroom
 GET https://api.learncube.com/api/virtual-classroom/classrooms/{uuid}/
 ```
 
@@ -64,6 +67,26 @@ GET https://api.learncube.com/api/virtual-classroom/classrooms/{uuid}/
 }
 ```
 
+
+#### Query Parameters
+The Classroom list can be filtered by providing the following query parameters.
+
+```curl
+GET https://api.learncube.com/api/virtual-classroom/classrooms/?start_before=2021-07-20T16:02:15Z&page=3
+```
+
+#### Options
+Name | Type | Description
+-----|------|------------|
+page | number| A page number of the result set. A page contains a maximum of 100 results
+room_token | string | The unique token you provide to identify the room
+start_before | datetime | Shows only classes scheduled to start before the date / time provided
+start_after | datetime | Shows only classes scheduled to start after the date / time provided
+teacher_attended | boolean | True if the teacher has attended the class
+teacher_id | string | Show classes only for a particular teacher
+
+
+
 #### Properties
 Name | Type | Description
 -----|------|------------|
@@ -94,21 +117,3 @@ slug | string | The Learncube in-class identifier
 \* recorded_class_url | url | The url of the class recording if available
 
 \* Deprecated. This property applies to the hosted Learncube Virtual Classroom classes. For client integration they can be ignored. 
-
-
-#### Query Parameters
-The Classroom list can also be filtered by providing the following query parameters.
-
-```curl
-GET https://api.learncube.com/api/virtual-classroom/classrooms/?start_before=2021-07-20T16:02:15Z&page=3
-```
-
-#### Options
-Name | Type | Description
------|------|------------|
-page | number| A page number of the result set. A page contains a maximum of 100 results
-room_token | string | The unique token you provide to identify the room
-start_before | datetime | Shows only classes scheduled to start before the date / time provided
-start_after | datetime | Shows only classes scheduled to start after the date / time provided
-teacher_attended | boolean | True if the teacher has attended the class
-teacher_id | string | Show classes only for a particular teacher
