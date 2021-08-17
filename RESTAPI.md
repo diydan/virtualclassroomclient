@@ -46,7 +46,7 @@ GET https://api.learncube.com/api/virtual-classroom/classrooms/
     {
       "uuid": "b4b7a6d7-77ff-4245-896e-5291645d98c3",
       "creation_date": "2021-06-28T16:31:07.022477Z",
-      "room_token": null,
+      "room_token": "vc-client-sample-1",
       "cancelled": false,
       "description": "",
       "start": "2021-08-26T19:30:00Z",
@@ -163,6 +163,63 @@ slug | string | The Learncube in-class identifier
 \* room_review_url | url | The url of the class review
 \* recorded_class_url | url | The url of the class recording if available -->
 
+<br />
+<br />
 
-### Participant
-Each instance of the Learncube Virtual Classroom represents an individual class, with a unique id, start time, end time, and other properties that define what type of class it will be.
+### Participants
+Each unique user that attends a Learncube Classroom is called a Participant. A Participant can be a student or a teacher and is created as soon as they enter the classroom. The Participants API allows you to track how many classes your teachers and students have attended.
+
+#### List Participants
+Participants can be retrieved in a list at the following endpoint.
+
+
+```curl
+# Fetch participant list
+GET https://api.learncube.com/api/virtual-classroom/participants/
+```
+
+#### Example
+```json
+{
+  "count": 1,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "uuid": "bd95ef31-20cd-41e1-b04c-70a26c743b84",
+      "event_uuid": "6ce843b7-9331-44a6-9c05-c1ae53a256c7",
+      "userid": "example-user-g6nIX0",
+      "room_token": "vc-client-sample-1",
+      "teacher": "Test Teacher",
+      "user_role": "teacher",
+      "username": "Test Teacher",
+      "avatar": "https://randomuser.me/api/portraits/thumb/women/95.jpg",
+      "cancelled": false,
+      "attended": true,
+      "attended_time": "2021-05-26T15:28:43.638172Z",
+      "ended_time": "2021-05-26T16:30:14.638172Z",
+      "class_rating": "",
+      "class_review": ""
+    }
+  ]
+}
+```
+
+#### Query Parameters
+The Participant list can be filtered by providing one or more query parameters.
+
+```curl
+GET https://api.learncube.com/api/virtual-classroom/participants/?room_token=vc-client-sample-1&user_role=student
+```
+
+#### Options
+Name | Type | Description
+-----|------|------------|
+page | number| A page number of the result set. A page contains a maximum of 100 results
+room_token | string | The unique token you provide to identify the room
+start_before | datetime | Shows only classes scheduled to start before the date / time provided
+start_after | datetime | Shows only classes scheduled to start after the date / time provided
+teacher_attended | boolean | True if the teacher has attended the class
+<!-- teacher_id | string | Show classes only for a particular teacher -->
+
+<br />
