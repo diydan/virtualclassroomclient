@@ -14,10 +14,14 @@
   * [Participants](RESTAPI.md#participants)
 
 
+
+### Overview
+The Learncube Virtual Classroom API is used to create and schedule classes, enrol participants in classes and to set the default properties of a Learncube Virtual Classroom. 
+
 ### Classroom
 Each instance of the Learncube Virtual Classroom represents an individual class, with a unique id, start time, end time, and other properties that define what type of class it will be.
 
-#### Endpoints
+#### Fetch Classrooms
 Classrooms can be retrieved in a list or individually by providing the Learncube uuid.
 
 
@@ -31,6 +35,8 @@ GET https://api.learncube.com/api/virtual-classroom/classrooms/{uuid}/
 
 #### Example
 ```json 
+//GET https://api.learncube.com/api/virtual-classroom/classrooms/
+
 {
   "count": 101,
   "next": "https://api.learncube.com/api/virtual-classroom/classrooms/?page=2",
@@ -86,8 +92,31 @@ teacher_attended | boolean | True if the teacher has attended the class
 teacher_id | string | Show classes only for a particular teacher
 
 
+#### Create Classroom
+A Classroom can be created with a POST request to the same url endpoint. The only required parameter is the unique room token, but there are many additional options to customise the classroom.
 
-#### Properties
+```
+POST https://app.learncube.com/api/virtual-classroom/classrooms/
+{
+  "room_token": "august-13-1"
+}
+```
+#### Options
+Name | Type | Required | Default | Description
+-----|------|----------|---------|------------|
+room_token | string | yes | n/a | The unique token you provide to identify the room
+start| datetime | no | current time | The scheduled start time / date of the class
+end | datetime | no | current time + 1 hour | The scheduled end time / date of the class
+cancelled | boolean | no | false | True if the teacher has attended the class
+description | string | no | '' | Your text description of the class
+max_participants | number | no | 1 | The maximum amount of allowed participants per class
+audio_only | boolean | no | false | The class does not use video if set to true. Good for lower speed connections
+whiteboard_only | boolean | no | false | The class has only the whiteboard if set to True
+return_url | string | no | '' | Show classes only for a particular teacher
+record_class | boolean | no | false | True if the teacher has attended the class
+
+
+#### Classroom Properties
 Name | Type | Description
 -----|------|------------|
 uuid | string | Internal Learncube unique id for tracking your class event
@@ -99,7 +128,7 @@ room_token | string | The unique token you provide to identify the room
 cancelled | boolean | Flag for if the class is cancelled or not
 cancelled_by | string | The id of the user that cancelled the class
 company_slug | string | Company name formatted to create a searchable string 
-description | string | Your description of the class
+description | string | Your text description of the class
 start | datetime | The scheduled start time / date of the class
 end | datetime | The scheduled end time / date of the class
 max_participants | number | The maximum amount of allowed participants per class
@@ -117,3 +146,7 @@ slug | string | The Learncube in-class identifier
 \* recorded_class_url | url | The url of the class recording if available
 
 \* Deprecated. This property applies to the hosted Learncube Virtual Classroom classes. For client integration they can be ignored. 
+
+
+### Participant
+Each instance of the Learncube Virtual Classroom represents an individual class, with a unique id, start time, end time, and other properties that define what type of class it will be.
