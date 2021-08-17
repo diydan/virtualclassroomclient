@@ -18,19 +18,20 @@
 ### Overview
 The Learncube Virtual Classroom API is used to create and schedule classes, enrol participants in classes and to set the default properties of a Learncube Virtual Classroom. 
 
+<br />
+
 ### Classroom
 Each instance of the Learncube Virtual Classroom represents an individual class, with a unique id, start time, end time, and other properties that define what type of class it will be.
 
-#### Fetch Classrooms
+<br />
+
+#### List Classrooms
 Classrooms can be retrieved in a list or individually by providing the Learncube uuid.
 
 
 ```curl
 # Fetch classroom list
 GET https://api.learncube.com/api/virtual-classroom/classrooms/
-
-# Fetch single classroom
-GET https://api.learncube.com/api/virtual-classroom/classrooms/{uuid}/
 ```
 
 #### Example
@@ -91,9 +92,10 @@ start_after | datetime | Shows only classes scheduled to start after the date / 
 teacher_attended | boolean | True if the teacher has attended the class
 teacher_id | string | Show classes only for a particular teacher
 
+<br />
 
 #### Create Classroom
-A Classroom can be created with a POST request to the same url endpoint. The only required parameter is the unique room token, but there are many additional options to customise the classroom.
+A Classroom can be created with a POST or updated with a PUT request to the same url endpoint. The only required parameter is the unique room token, but there are many additional options to customise the classroom.
 
 ```
 POST https://app.learncube.com/api/virtual-classroom/classrooms/
@@ -101,10 +103,30 @@ POST https://app.learncube.com/api/virtual-classroom/classrooms/
   "room_token": "august-13-1"
 }
 ```
-#### Options
+
+#### Read Classroom
+An individual Classroom can be fetched with a GET request to the same url root with the unique Learncube id
+
+```
+# Fetch single classroom
+GET https://api.learncube.com/api/virtual-classroom/classrooms/{uuid}/
+```
+
+#### Update Classroom
+A Classroom can be updated with a PUT request with the unique Learncube id
+
+```
+PUT https://api.learncube.com/api/virtual-classroom/classrooms/{uuid}/
+{
+  "room_token": "august-13-1",
+  "whiteboard_only": true
+}
+```
+
+#### POST / PUT Options
 Name | Type | Required | Default | Description
 -----|------|----------|---------|------------|
-room_token | string | yes | n/a | The unique token you provide to identify the room
+room_token | string | yes | n/a | The unique token you provide to identify the room. Required for POST and PUT requests
 start| datetime | no | current time | The scheduled start time / date of the class
 end | datetime | no | current time + 1 hour | The scheduled end time / date of the class
 cancelled | boolean | no | false | True if the teacher has attended the class
@@ -115,6 +137,15 @@ whiteboard_only | boolean | no | false | The class has only the whiteboard if se
 return_url | string | no | '' | Show classes only for a particular teacher
 record_class | boolean | no | false | True if the teacher has attended the class
 
+<br />
+
+#### Destroy Classroom
+A Classroom can be destroyed with a DELETE request with the unique Learncube id.
+```
+DELETE https://api.learncube.com/api/virtual-classroom/classrooms/{uuid}/
+```
+
+<br />
 
 #### Classroom Properties
 Name | Type | Description
