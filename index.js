@@ -5,8 +5,8 @@ const path = require('path');
 const router = express.Router();
 const port = 3000;
 const jwt = require('jsonwebtoken');
-app.use(express.json());
 
+app.use(express.json());
 
 
 router.get('/', function (req, res) {

@@ -5,14 +5,14 @@
     <title>Learncube Api Integration</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="https://static.learncube.net/vue/virtualclassroom/widget.css?now=2">
-    <script type="text/javascript" src="https://static.learncube.net/vue/virtualclassroom/widget.js?now=5"></script>
+    <link rel="stylesheet" type="text/css" href="https://static.learncube.net/client/virtualclassroom.1.0.0.css?now=6">
+    <script type="text/javascript" src="https://static.learncube.net/client/virtualclassroom.1.0.0.js?now=6"></script>
 </head>
 
 <body>
     <div id="virtual-classroom-client"></div>
     <script type="text/javascript">
-        /*const classroom = new VirtualClassroom('#virtual-classroom-client',
+        const classroom = new VirtualClassroom('#virtual-classroom-client',
             {
               'token': {{UNIQUE ROOM TOKEN HERE}}, // Eg. first-test-room-token
                 'userid': {{FAKE USER ID HERE}}, // Eg. 12345G
@@ -21,18 +21,17 @@
                 'userType': 'teacher',
                 'validateUrl': '/get-valid-token/'
             });
-        */
 
-        const classroom = new VirtualClassroom('#virtual-classroom-client',
-            {
-                'token': 'august-16-1', // Eg. first-test-room-token
-                'userid': '12345G',
-                'username': 'Test Widget Teacher', // Eg. 'Test Widget Teacher',
-                'publicKey': '63d2dd20e7557161942c53e4',
-                'userType': 'teacher',
-                'validateUrl': '/get-valid-token/'
-            });
-  
+        classroom.addEventListener('enterBreakoutRoom', (evt) => {
+            console.log(evt.detail)
+        })
+        classroom.addEventListener('enterClass', (evt) => {
+            console.log(evt.detail)
+        })
+        classroom.addEventListener('updateClassStatus', (evt) => {
+            console.log(evt.detail)
+        })
+            
     </script> 
 </body>
 

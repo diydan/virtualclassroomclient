@@ -217,9 +217,16 @@ Name | Type | Description
 -----|------|------------|
 page | number| A page number of the result set. A page contains a maximum of 100 results
 room_token | string | The unique token you provide to identify the room
-start_before | datetime | Shows only classes scheduled to start before the date / time provided
-start_after | datetime | Shows only classes scheduled to start after the date / time provided
-teacher_attended | boolean | True if the teacher has attended the class
+userid | string | The unique id provided by you to identify the user
+user_role | string | Filter by student or teacher
+teacher | string | Filter by the teacher username
+attended_time_before | datetime | Shows only classes the participant attended before the date / time provided
+attended_time_after | datetime | Shows only classes the participant after the date / time provided
+ended_time_before | datetime | Shows only classes that ended before the date / time provided
+ended_time_after | datetime | Shows only classes that ended after the date / time provided
+class_rating_lte | number | Shows classes less than or equal to this star rating (1-5)
+class_rating_gte | number | Shows classes greater than or equal to this star rating (1-5)
+<!-- attended | boolean | True if the teacher has attended the class -->
 <!-- teacher_id | string | Show classes only for a particular teacher -->
 
 <br />
