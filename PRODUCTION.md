@@ -7,6 +7,7 @@
   * [Routes](PRODUCTION.md#routes)
   * [Browser Support](PRODUCTION.md#browser)
   * [Authentication](PRODUCTION.md#authentication)
+  * [Events](PRODUCTION.md#events)
   * [Client Api Reference](PRODUCTION.md#api-reference)
 
 ### [Rest Api](RESTAPI.md)
@@ -54,6 +55,32 @@ The available views are:
 
 ### Events
 
+The Virtual Classroom Client emits javascript events to notify you of user actions such as: 
+A user entering or exiting a class
+The class starting or ending
+A user has attempted to enter a breakout room
+
+Since the constructor function returns a HTML dom element, you can attach event listeners to these events.
+
+You can track how much time your users spend in a classroom by logging the enter and exit events, or you can redirect users to a different url to access a breakout room.
+
+There is a full list of available events below in the [API Reference](#api-reference)
+```javascript
+const classroomElement = new VirtualClassroomClient(el, userConfig, classConfig)
+
+classroomElement.addEventListener('enterClass', function (evt) {
+    const user = event.detail.user;
+    const timestamp = event.detail.timestamp;
+    console.log('User ' + user.username + 'entered the class at ' + timestamp)
+});
+
+classroomElement.addEventListener('enterBreakoutRoom', function (evt) {
+    const breakoutRoomToken = event.detail.token;
+    const breakoutRoomUser = event.detail.userid;
+    console.log('Redirect ' + user.username + 'to a new url to enter the breakout room with the token ' + breakoutRoomToken)
+});
+
+```
 <br/>
 <br/>
 
@@ -61,7 +88,7 @@ The available views are:
 
 #### Constructor
 ```javascript
-const el = VirtualClassroomClient(el, userConfig, classConfig)
+const classroom = new VirtualClassroomClient(el, userConfig, classConfig)
 ```
 
 #### Parameters

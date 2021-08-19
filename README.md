@@ -5,6 +5,7 @@
 
 ### [Production Use](PRODUCTION.md)
   * [Routes](PRODUCTION.md#routes)
+  * [Events](PRODUCTION.md#events)
   * [Browser Support](PRODUCTION.md#browser)
   * [Authentication](PRODUCTION.md#authentication)
   * [Client Api Reference](PRODUCTION.md#api-reference)
