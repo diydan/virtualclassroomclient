@@ -55,14 +55,14 @@ The available views are:
 
 ### Events
 
-The Virtual Classroom Client emits javascript events to notify you of user actions such as: 
+The Virtual Classroom Client emits [custom events](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) to notify you of user actions such as: 
 A user entering or exiting a class
 The class starting or ending
 A user has attempted to enter a breakout room
 
-Since the constructor function returns a HTML dom element, you can attach event listeners to these events.
+You can track these events by attaching event listeners to the DOM element returned by the Virtual Classroom Client constructor function.
 
-You can track how much time your users spend in a classroom by logging the enter and exit events, or you can redirect users to a different url to access a breakout room.
+Each event contains a detail object that has the timestamp of when the event occurred and additional data about the event.
 
 There is a full list of available events below in the [API Reference](#api-reference)
 ```javascript
@@ -149,3 +149,11 @@ settings.embedded_whiteboard | boolean | no | Overwrites the class type to rende
 settings.show_class_feedback | boolean | no | Shows the class feedback form at when the class is ended |
 whiteboard.enable_math_tools | boolean | no | Enables maths tools to use on the whiteboard |
 whiteboard.can_edit_all | boolean | no | Enables user to edit all annotations on the whiteboard. Default is true for all users |
+
+#### Events
+Name | Triggered By | Example Payload | 
+-----|--------------|---------|
+enterClass | Entering a classroom | `{user: {userid: "12345G"}, timestamp: 1629448350461}` 
+exitClass | Exiting a classroom | `{user: {userid: "12345G"}, timestamp: 1629448350461}` 
+updateClassStatus | Exiting a classroom | `{classStatus: "in-progress", timestamp: 1629448350461}`  
+enterBreakoutRoom | Clicking link to enter a Breakout Room | `{token: 'breakout-token', userid: "12345G", timestamp: 1629449473109}`
