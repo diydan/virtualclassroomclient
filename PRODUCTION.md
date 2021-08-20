@@ -124,6 +124,7 @@ const userConfig = {
     'avatar': {{PARTICIPANTTHUMBNAIL}},
     'userType': {{'teacher'|'student'}},
     'validateUrl': {{auth.your-server.com}},
+    'instantClass': {{true | false}}
 }
 ```
 Name | Type | Required | Description
@@ -132,9 +133,10 @@ publicKey | string | no | The unique [public key](https://app.learncube.com/app/
 token | string | yes | We use this to create the classroom record in the learncube database, so it must be unique. You can create the classroom using our REST API, or if the classroom doesn't exist when you access it here, it will be created. |
 userid | string | yes | This is the id of the participant that is entering the classroom. Each user must have a unique id for the real-time messaging and video conferencing to work properly. |
 username | string | no | This is the display name of the participant that is entering the classroom. Although this is not strictly required, it is highly recommended for the teacher to differentiate whiteboard annotations and chat messages |
-avater | string | no | A url of a thumbnail that will be used to represent the user in various places of the Virtual Classroom  |
+avatar | string | no | A url of a thumbnail that will be used to represent the user in various places of the Virtual Classroom  |
 userType | string | no | Optional user type to overwite any settings for an already created class. Defaults to student if not provided |
 validateUrl | url | yes | Url endpoint to do the validation on your server |
+instantClass | boolean | no | Creates a class if one does not already exist with the token provided. Defaults to false |
 
 <br/>
 
