@@ -21,7 +21,7 @@ The Learncube Virtual Classroom API is used to create and schedule classes, enro
 
 <br />
 
-### Classroom
+### Classrooms
 Each instance of the Learncube Virtual Classroom represents an individual class, with a unique id, start time, end time, and other properties that define what type of class it will be.
 
 <br />
@@ -119,6 +119,8 @@ start| datetime | no | current time | The scheduled start time / date of the cla
 end | datetime | no | current time + 1 hour | The scheduled end time / date of the class
 cancelled | boolean | no | false | True if the teacher has attended the class
 description | string | no | '' | Your text description of the class
+breakout_parent_token | string | no | '' | The unique token of the main parent room. (Only to be included in creating [breakout rooms](PRODUCTION.md#breakout-rooms).)
+
 <!-- max_participants | number | no | 1 | The maximum amount of allowed participants per class
 audio_only | boolean | no | false | The class does not use video if set to true. Good for lower speed connections
 whiteboard_only | boolean | no | false | The class has only the whiteboard if set to True

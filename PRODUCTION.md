@@ -88,7 +88,7 @@ classroomElement.addEventListener('enterBreakoutRoom', function (evt) {
 ### Breakout Rooms
 [Breakout Rooms](https://support.learncube.com/en/articles/4149866-using-learncube-s-breakout-rooms-feature) are additional child rooms that can be used to split a group class into smaller separate classes.
 
-Breakout rooms can be created through the UI in the classroom or using the [REST API](RESTAPI.md). Programatically, they are identical to a standard room, just with a link to the parent room. 
+Breakout rooms can be created through the UI in the classroom or using the [REST API](RESTAPI.md). Programatically, they are identical to a standard room, just with a reference to the parent room. 
 
 To navigate between the parent room and breakout rooms, the user must first exit the current room, and then enter the breakout room. The recommended way to allow this is to have a unique url for each classroom.
 
