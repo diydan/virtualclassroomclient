@@ -8,6 +8,7 @@
   * [Browser Support](PRODUCTION.md#browser)
   * [Authentication](PRODUCTION.md#authentication)
   * [Events](PRODUCTION.md#events)
+  * [Breakout Rooms](PRODUCTION.md#breakout-rooms)
   * [Client Api Reference](PRODUCTION.md#api-reference)
 
 ### [Rest Api](RESTAPI.md)
@@ -17,13 +18,13 @@
 	
 
 ### Production Use
-Once you've got the Quickstart app up and running, it's time for a more in-depth look the requirements and options available for production use.
+The Virtual Classroom Client is a single page Javascript web application, that can be seamlessly embedded in any HTML page and rendered in a browser.
 
 ### Authentication
 All api calls from the Virtual Classroom Client must be authenticated using JSON Web Tokens. For more information on this see [Authentication](AUTH.md)
 
 ### Browser Support
-The Virtual Classroom Client is a single page Javascript web application. It uses web-rtc for video and voice calls and websockets for real-time messaging. Browser support is below.
+The Virtual Classroom Client uses web-rtc for video and voice calls and websockets for real-time messaging. Browser support is below.
 
 Edge | Firefox | Chrome | Opera | Safari | Safari iOS | Chrome Android | Firefox Android | Samsung 
 -----|---------|--------|-----|---------|--------|-----|---------|--------|
@@ -56,9 +57,9 @@ The available views are:
 ### Events
 
 The Virtual Classroom Client emits [custom events](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) to notify you of user actions such as: 
-A user entering or exiting a class
-The class starting or ending
-A user has attempted to enter a breakout room
+* A user entering or exiting a class
+* A class starting or ending
+* A user has attempted to enter a breakout room
 
 You can track these events by attaching event listeners to the DOM element returned by the Virtual Classroom Client constructor function.
 
@@ -83,6 +84,15 @@ classroomElement.addEventListener('enterBreakoutRoom', function (evt) {
 ```
 <br/>
 <br/>
+
+### Breakout Rooms
+[Breakout Rooms](https://support.learncube.com/en/articles/4149866-using-learncube-s-breakout-rooms-feature) are additional child rooms that can be used to split a group class into smaller separate classes.
+
+Breakout rooms can be created through the UI in the classroom or using the [REST API](RESTAPI.md). Programatically, they are identical to a standard room, just with a link to the parent room. 
+
+To navigate between the parent room and breakout rooms, the user must first exit the current room, and then enter the breakout room. The recommended way to allow this is to have a unique url for each classroom.
+
+A teacher can enter a Breakout Room by clicking a link in the UI. A student can be placed into the breakout room by the teacher. In both of these cases the Virtual Classroom Client will emit a custom event containing the room token for the breakout room. You must handle this event in order to exit one room and enter another. 
 
 ### API Reference
 

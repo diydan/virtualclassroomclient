@@ -1,4 +1,4 @@
-# Learncube Virtual Classroom Rest API
+# Learncube Virtual Classroom Client
 
 ### [Overview](README.md)
   * [Quickstart](README.md#quickstart)
@@ -7,12 +7,13 @@
   * [Routes](PRODUCTION.md#routes)
   * [Browser Support](PRODUCTION.md#browser)
   * [Authentication](PRODUCTION.md#authentication)
+  * [Events](PRODUCTION.md#events)
+  * [Breakout Rooms](PRODUCTION.md#breakout-rooms)
   * [Client Api Reference](PRODUCTION.md#api-reference)
 
 ### [Rest Api](RESTAPI.md)
   * [Classrooms](RESTAPI.md#classrooms)
   * [Participants](RESTAPI.md#participants)
-
 
 
 ### Overview
