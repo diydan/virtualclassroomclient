@@ -80,8 +80,16 @@ classroomElement.addEventListener('enterBreakoutRoom', function (evt) {
     const breakoutRoomUser = event.detail.userid;
     console.log('Redirect ' + user.username + 'to a new url to enter the breakout room with the token ' + breakoutRoomToken)
 });
-
 ```
+
+### Triggers
+The Virtual Classroom Client also listens to custom events that you can trigger from your own javascript runtime. The events can be used to start or end a class.
+
+```javascript
+const classroomElement = new VirtualClassroomClient(el, userConfig, classConfig)
+classroomElement.dispatchEvent(new CustomEvent('startClass', {'detail': {}}))
+```
+
 <br/>
 <br/>
 
@@ -169,3 +177,9 @@ enterClass | Entering a classroom | `{user: {userid: "12345G"}, timestamp: 16294
 exitClass | Exiting a classroom | `{user: {userid: "12345G"}, timestamp: 1629448350461}` 
 updateClassStatus | Exiting a classroom | `{classStatus: "in-progress", timestamp: 1629448350461}`  
 enterBreakoutRoom | Clicking link to enter a Breakout Room | `{token: 'breakout-token', userid: "12345G", timestamp: 1629449473109}`
+
+#### Triggers
+Name | Example Payload | 
+-----|---------|
+startClass | n/a 
+endClass | n/a 
