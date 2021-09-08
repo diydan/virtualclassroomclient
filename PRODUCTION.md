@@ -140,16 +140,16 @@ const userConfig = {
     'instantClass': {{true | false}}
 }
 ```
-Name | Type | Required | Description
------|---------|-----|---------|
-publicKey | string | no | The unique [public key](https://app.learncube.com/app/dashboard/#api) that is associated with your learncube account. This is how we identify you and what we use for authenticating API calls.|
-token | string | yes | We use this to create the classroom record in the learncube database, so it must be unique. You can create the classroom using our REST API, or if the classroom doesn't exist when you access it here, it will be created. |
-userid | string | yes | This is the id of the participant that is entering the classroom. Each user must have a unique id for the real-time messaging and video conferencing to work properly. |
-username | string | no | This is the display name of the participant that is entering the classroom. Although this is not strictly required, it is highly recommended for the teacher to differentiate whiteboard annotations and chat messages |
-avatar | string | no | A url of a thumbnail that will be used to represent the user in various places of the Virtual Classroom  |
-userType | string | no | Optional user type to overwite any settings for an already created class. Defaults to student if not provided |
-validateUrl | url | yes | Url endpoint to do the validation on your server |
-instantClass | boolean | no | Creates a class if one does not already exist with the token provided. Defaults to false |
+Name | Type | Required | Default  | Description
+-----|---------|-----|---------|---|
+publicKey | string | yes | n/a | The unique [public key](https://app.learncube.com/app/dashboard/#api) that is associated with your learncube account. This is how we identify you and what we use for authenticating API calls.|
+token | string | yes | n/a  | We use this to create the classroom record in the learncube database, so it must be unique. You can create the classroom using our REST API, or if the classroom doesn't exist when you access it here, it will be created. |
+userid | string | yes | n/a  | This is the id of the participant that is entering the classroom. Each user must have a unique id for the real-time messaging and video conferencing to work properly. |
+username | string | no | ' ' | This is the display name of the participant that is entering the classroom. Although this is not strictly required, it is highly recommended for the teacher to differentiate whiteboard annotations and chat messages |
+avatar | string | no | ' ' | A url of a thumbnail that will be used to represent the user in various places of the Virtual Classroom  |
+userType | string | no | student | Optional user type to overwite any settings for an already created class. |
+validateUrl | url | yes | n/a  | Url endpoint to do the validation on your server |
+instantClass | boolean | yes | false | Creates a class if one does not already exist with the token provided. |
 
 <br/>
 
@@ -166,16 +166,16 @@ const classConfig = {
   'whiteboard.can_edit_all': true
 }
 ```
-Name | Type | Required | Description
------|---------|-----|---------|
-lesson_materials.can_upload | boolean | no | Gives the user permission to upload content to the whiteboard during the class. Default is true for Teacher and false for Students |
-lesson_materials.enable_screenshare | boolean | no | Gives the user permission to share their screen to the whiteboard during the class. Default is true for Teacher and false for Students |
-lesson_materials.enable_doc_cam | boolean | no | Gives the user permission to share an additional camera feed to the whiteboard during the class. Default is true for Teacher and false for Students |
-settings.embedded_whiteboard | boolean | no | Overwrites the class type to render the class in whiteboard only mode. There is no video or chat components in this view |
-settings.show_class_feedback | boolean | no | Shows the class feedback form at when the class is ended |
-settings.class_control_button | boolean | no | Shows a button to start / end the class instead of the standard dropdown |
-whiteboard.enable_math_tools | boolean | no | Enables maths tools to use on the whiteboard |
-whiteboard.can_edit_all | boolean | no | Enables user to edit all annotations on the whiteboard. Default is true for all users |
+Name | Type | Required | Default | Description
+-----|------|----------|---------|------------|
+lesson_materials.can_upload | boolean | no | Teacher: true Student false | Gives the user permission to upload content to the whiteboard during the class. |
+lesson_materials.enable_screenshare | boolean | no | Teacher: true Student false |  Gives the user permission to share their screen to the whiteboard during the class.|
+lesson_materials.enable_doc_cam | boolean | no | Teacher: true Student: false  | Gives the user permission to share an additional camera feed to the whiteboard during the class. |
+settings.embedded_whiteboard | boolean | no | false | Overwrites the class type to render the class in whiteboard only mode. There is no video or chat components in this view. |
+settings.show_class_feedback | boolean | no | true | Shows the class feedback form at when the class is ended |
+settings.class_control_button | boolean | no | false | Shows a button to start / end the class instead of the standard dropdown |
+whiteboard.enable_math_tools | boolean | no | false | Enables maths tools to use on the whiteboard |
+whiteboard.can_edit_all | boolean | no | true | Enables user to edit all annotations on the whiteboard.|
 
 #### Events
 Name | Triggered By | Example Payload | 
