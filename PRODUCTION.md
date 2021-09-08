@@ -75,6 +75,11 @@ classroomElement.addEventListener('enterClass', function (evt) {
     console.log('User ' + user.username + 'entered the class at ' + timestamp)
 });
 
+classroomElement.addEventListener('exitClass', function (evt) {
+    // redirect to your own custom feedback form
+    window.location.href = 'https://feedback.your-domain.com'
+});
+
 classroomElement.addEventListener('enterBreakoutRoom', function (evt) {
     const breakoutRoomToken = event.detail.token;
     const breakoutRoomUser = event.detail.userid;
@@ -156,6 +161,7 @@ const classConfig = {
   'lesson_materials.enable_doc_cam': true,
   'settings.embedded_whiteboard': true,
   'settings.show_class_feedback': true,
+  'settings.class_control_button': true,
   'whiteboard.enable_math_tools': true,
   'whiteboard.can_edit_all': true
 }
@@ -167,6 +173,7 @@ lesson_materials.enable_screenshare | boolean | no | Gives the user permission t
 lesson_materials.enable_doc_cam | boolean | no | Gives the user permission to share an additional camera feed to the whiteboard during the class. Default is true for Teacher and false for Students |
 settings.embedded_whiteboard | boolean | no | Overwrites the class type to render the class in whiteboard only mode. There is no video or chat components in this view |
 settings.show_class_feedback | boolean | no | Shows the class feedback form at when the class is ended |
+settings.class_control_button | boolean | no | Shows a button to start / end the class instead of the standard dropdown |
 whiteboard.enable_math_tools | boolean | no | Enables maths tools to use on the whiteboard |
 whiteboard.can_edit_all | boolean | no | Enables user to edit all annotations on the whiteboard. Default is true for all users |
 
