@@ -159,7 +159,8 @@ const classConfig = {
   'lesson_materials.can_upload': true,
   'lesson_materials.enable_screenshare': true,
   'lesson_materials.enable_doc_cam': true,
-  'settings.embedded_whiteboard': true,
+  'settings.embedded_whiteboard': true, 
+  'settings.allow_skip_onboarding': true, 
   'settings.show_class_feedback': true,
   'settings.class_control_button': true,
   'whiteboard.enable_math_tools': true,
@@ -172,6 +173,7 @@ lesson_materials.can_upload | boolean | no | Teacher: true Student false | Gives
 lesson_materials.enable_screenshare | boolean | no | Teacher: true Student false |  Gives the user permission to share their screen to the whiteboard during the class.|
 lesson_materials.enable_doc_cam | boolean | no | Teacher: true Student: false  | Gives the user permission to share an additional camera feed to the whiteboard during the class. |
 settings.embedded_whiteboard | boolean | no | false | Overwrites the class type to render the class in whiteboard only mode. There is no video or chat components in this view. |
+settings.allow_skip_onboarding | boolean | no | false | Allows the user to skip the onboarding audio and video checks and tests. |
 settings.show_class_feedback | boolean | no | true | Shows the class feedback form at when the class is ended |
 settings.class_control_button | boolean | no | false | Shows a button to start / end the class instead of the standard dropdown |
 whiteboard.enable_math_tools | boolean | no | false | Enables maths tools to use on the whiteboard |
