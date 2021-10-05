@@ -58,8 +58,8 @@ Learncube's Virtual Classroom is only available to Learncube customers with API 
   ***Note: This does not have to match the user data in your `.env` file. All your classroom participants, teachers, students and admins, will access the classroom using your Learncube account details.***
   ```html
       <div id="virtual-classroom-client"></div>
-      <link rel="stylesheet" type="text/css" href="https://static.learncube.net/client/virtualclassroom.api.0.1.4.css">
-      <script type="text/javascript" src="https://static.learncube.net/client/virtualclassroom.api.0.1.4.js"></script>
+      <link rel="stylesheet" type="text/css" href="https://static.learncube.net/client/virtualclassroom.api.0.1.6.css">
+      <script type="text/javascript" src="https://static.learncube.net/client/virtualclassroom.api.0.1.6.js"></script>
       <script type="text/javascript">
           const classroom = new VirtualClassroom('#virtual-classroom-client',
               {
