@@ -1,4 +1,4 @@
-# Learncube Virtual Classroom Client
+# LearnCube Virtual Classroom Client
 
 ### [Overview](README.md)
   * [Quickstart](README.md#quickstart)
@@ -16,7 +16,7 @@
   * [Participants](RESTAPI.md#participants)
 
 ### Overview
-The Learncube Virtual Classroom is is an online learning environment that allows teachers and students to communicate, interact, collaborate through our video conferencing tool, chat box and interactive whiteboard. You can access all your past classes, upload and store class content, create breakout rooms, record your lessons and conduct classes in Conversation or Whiteboard-Only mode. 
+The LearnCube Virtual Classroom is is an online learning environment that allows teachers and students to communicate, interact, collaborate through our video conferencing tool, chat box and interactive whiteboard. You can access all your past classes, upload and store class content, create breakout rooms, record your lessons and conduct classes in Conversation or Whiteboard-Only mode. 
 
 <img src="https://www.learncube.com/images/blog_images/LearnCube-Update-July-2019.png">
 
@@ -25,37 +25,37 @@ The Learncube Virtual Classroom is is an online learning environment that allows
 
 ### Quickstart Guide 
 
-Learcube's Virtual Classroom Client is a simple to use drop-in widget that allows you to embed a fully equipped virtual classroom in any web page or LMS.
+LearnCube's Virtual Classroom Client is a simple to use drop-in widget that allows you to embed a fully equipped virtual classroom in any web page or LMS.
 
-Learncube's Virtual Classroom is only available to Learncube customers with API access enabled. Getting started is simple. 
+LearnCube's Virtual Classroom is only available to LearnCube customers with API access enabled. Getting started is simple. 
 
-- Log in to your [Learncube Account](https://app.learncube.com/), or [Sign up here for free](https://app.learncube.com/app/create/).
-- Get your public and private [api keys here](https://app.learncube.com/app/dashboard/#api) from your Learcube API Dashboard. (Leave the account mode to testing in order to follow this example)
+- Log in to your [LearnCube Account](https://app.learncube.com/), or [Sign up here for free](https://app.learncube.com/app/create/).
+- Get your public and private [api keys here](https://app.learncube.com/app/dashboard/#api) from your LearnCube API Dashboard. (Leave the account mode to testing in order to follow this example)
 - Clone the quickstart app to your local machine
 
   ```shell 
   git clone https://github.com/brianjfinnerty/virtualclassroomclient.git
   ```
 
-- Replace the variables in the `.env` file with real data from your Learncube API account.
+- Replace the variables in the `.env` file with real data from your LearnCube API account.
   ```
   # Private Key
   privateKey={privatekeyfromyouraccount}
 
-  # Learncube user username
+  # LearnCube user username
   username={usernamefromyouraccount}
 
-  # Learcube user id
+  # LearnCube user id
   user_id={useridfromyouraccount}
 
-  # Learncube user email
+  # LearnCube user email
   email={emailyouusedtosignup}
   ```
-  ***Important: This must match the user data we have stored for the Learncube account holder.***
+  ***Important: This must match the user data we have stored for the LearnCube account holder.***
 
 - Replace the Classroom participant data in the `index.html`file with user data of a classroom participants. 
 
-  ***Note: This does not have to match the user data in your `.env` file. All your classroom participants, teachers, students and admins, will access the classroom using your Learncube account details.***
+  ***Note: This does not have to match the user data in your `.env` file. All your classroom participants, teachers, students and admins, will access the classroom using your LearnCube account details.***
   ```html
       <div id="virtual-classroom-client"></div>
       <link rel="stylesheet" type="text/css" href="https://static.learncube.net/client/virtualclassroom.api.0.1.6.css">
@@ -84,7 +84,3 @@ Learncube's Virtual Classroom is only available to Learncube customers with API 
 
 <br/>
 <br/>
-
-
-
-
