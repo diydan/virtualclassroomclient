@@ -31,13 +31,21 @@ LearnCube's Virtual Classroom is only available to LearnCube customers with API 
 
 - Log in to your [LearnCube Account](https://app.learncube.com/), or [Sign up here for free](https://app.learncube.com/app/create/).
 - Get your public and private [api keys here](https://app.learncube.com/app/dashboard/#api) from your LearnCube API Dashboard. (Leave the account mode to testing in order to follow this example)
-- Clone the quickstart app to your local machine
+- Clone the quickstart app to your local machine and cd into the directory
 
   ```shell 
   git clone https://github.com/brianjfinnerty/virtualclassroomclient.git
+  cd virtualclassroomclient
   ```
 
-- Replace the variables in the `.env` file with real data from your LearnCube API account.
+- Create a configuration file for your application.
+  
+  ```shell
+  cp template.env .env
+  ```
+  
+- Replace the variables in the newly created `.env` file with real data from your LearnCube API account. 
+
   ```
   # Private Key
   privateKey={privatekeyfromyouraccount}
@@ -75,7 +83,6 @@ LearnCube's Virtual Classroom is only available to LearnCube customers with API 
 
 - Install dependencies and run 
   ```shell
-  cd virtualclassroomclient
   npm install
   npm start
   ```
